@@ -44,6 +44,7 @@ public final class CommonForgeEvents {
 	public static void onPlayerLoggedIn(final PlayerLoggedInEvent event) {
 		if (!event.getEntity().getLevel().isClientSide()) {
 			event.getEntity().getCapability(MagicCapability.MAGIC_DATA_CAPABILITY).ifPresent(data -> {
+				ModConstants.LOGGER.debug("SENDING PACKET TO CLIENT");
 				ModPacketHandler.INSTANCE.send(PacketDistributor.PLAYER.with(() -> (ServerPlayer) event.getEntity()),
 						new CSyncPlayerMagicDataPacket(data.getMana(), data.getActiveSpell()));
 			});
@@ -54,9 +55,11 @@ public final class CommonForgeEvents {
 	public static void onPlayerTickEvent(final PlayerTickEvent event) {
 		final IMagicData magicData = event.player.getCapability(MagicCapability.MAGIC_DATA_CAPABILITY)
 				.orElseThrow(NullPointerException::new);
+
 		// Could slow it down if need be, but if it works it works
 		if (magicData.getMana() != 100) {
 			magicData.setMana(magicData.getMana() + 1);
 		}
+
 	}
 }
