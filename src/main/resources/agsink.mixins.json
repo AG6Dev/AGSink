@@ -1,0 +1,9 @@
+{
+  "required": true,
+  "package": "dev.ag6.agsink.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "refmap": "agsink.refmap.json",
+  "mixins": [],
+  "client": [],
+  "minVersion": "0.8.5"
+}

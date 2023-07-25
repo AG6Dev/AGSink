@@ -1,0 +1,12 @@
+modLoader = "javafml"
+loaderVersion = "[47,)"
+license = "MIT"
+# issueTrackerURL="https://change.me.to.your.issue.tracker.example.invalid/"
+[[mods]]
+modId = "agsink"
+version = "${file.jarVersion}"
+displayName = "AGSink"
+# logoFile="agsink.png"
+authors = "AG6Dev"
+displayTest = "MATCH_VERSION"
+description = '''kitchen sink'''
