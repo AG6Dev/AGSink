@@ -1,7 +1,7 @@
 package dev.ag6.agsink.menu.screen;
 
 import com.mojang.blaze3d.systems.RenderSystem;
-import dev.ag6.agsink.ModConstants;
+import dev.ag6.agsink.AGSink;
 import dev.ag6.agsink.menu.LunchboxMenu;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
@@ -11,7 +11,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 
 public class LunchboxScreen extends AbstractContainerScreen<LunchboxMenu> {
-    private static final ResourceLocation BACKGROUND_TEXTURE = new ResourceLocation(ModConstants.MOD_ID, "textures/gui/lunchbox.png");
+    private static final ResourceLocation BACKGROUND_TEXTURE = new ResourceLocation(AGSink.MOD_ID, "textures/gui/lunchbox.png");
 
     public LunchboxScreen(LunchboxMenu pMenu, Inventory pPlayerInventory, Component pTitle) {
         super(pMenu, pPlayerInventory, pTitle);

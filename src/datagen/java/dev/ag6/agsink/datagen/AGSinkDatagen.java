@@ -1,6 +1,5 @@
 package dev.ag6.agsink.datagen;
 
-import dev.ag6.agsink.ModConstants;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;

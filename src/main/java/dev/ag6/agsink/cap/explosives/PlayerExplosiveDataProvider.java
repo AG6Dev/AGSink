@@ -1,6 +1,6 @@
 package dev.ag6.agsink.cap.explosives;
 
-import dev.ag6.agsink.ModConstants;
+import dev.ag6.agsink.AGSink;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.resources.ResourceLocation;
@@ -13,7 +13,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public class PlayerExplosiveDataProvider implements ICapabilitySerializable<ListTag> {
-    public static final ResourceLocation ID = new ResourceLocation(ModConstants.MOD_ID, "player_explosive_data");
+    public static final ResourceLocation ID = new ResourceLocation(AGSink.MOD_ID, "player_explosive_data");
 
     private final PlayerExplosiveData data = new PlayerExplosiveDataCapability();
     private final LazyOptional<PlayerExplosiveData> optional = LazyOptional.of(() -> this.data);

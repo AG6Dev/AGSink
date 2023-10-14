@@ -10,7 +10,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 
 public final class ModCreativeTabs {
-    public static final DeferredRegister<CreativeModeTab> CREATIVE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, ModConstants.MOD_ID);
+    public static final DeferredRegister<CreativeModeTab> CREATIVE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, AGSink.MOD_ID);
 
     public static final RegistryObject<CreativeModeTab> MOD_TAB = CREATIVE_TABS.register("mod_tab",
             () -> CreativeModeTab.builder()

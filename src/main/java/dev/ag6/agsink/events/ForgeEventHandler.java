@@ -1,6 +1,6 @@
 package dev.ag6.agsink.events;
 
-import dev.ag6.agsink.ModConstants;
+import dev.ag6.agsink.AGSink;
 import dev.ag6.agsink.block.ModBlocks;
 import dev.ag6.agsink.cap.explosives.PlayerExplosiveDataCapability;
 import dev.ag6.agsink.cap.explosives.PlayerExplosiveDataProvider;
@@ -11,7 +11,7 @@ import net.minecraftforge.event.level.BlockEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
-@Mod.EventBusSubscriber(modid = ModConstants.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
+@Mod.EventBusSubscriber(modid = AGSink.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public final class ForgeEventHandler {
     @SubscribeEvent
     public static void attachCapabilities(AttachCapabilitiesEvent<Entity> event) {

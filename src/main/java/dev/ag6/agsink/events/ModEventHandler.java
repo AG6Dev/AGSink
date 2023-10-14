@@ -1,6 +1,6 @@
 package dev.ag6.agsink.events;
 
-import dev.ag6.agsink.ModConstants;
+import dev.ag6.agsink.AGSink;
 import dev.ag6.agsink.cap.explosives.PlayerExplosiveData;
 import dev.ag6.agsink.entity.ModEntities;
 import dev.ag6.agsink.menu.ModMenuTypes;
@@ -13,7 +13,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 
-@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD, modid = ModConstants.MOD_ID)
+@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD, modid = AGSink.MOD_ID)
 public final class ModEventHandler {
     @SubscribeEvent
     public static void onRegisterCapabilities(RegisterCapabilitiesEvent event) {

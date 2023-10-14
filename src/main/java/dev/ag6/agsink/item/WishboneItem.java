@@ -12,26 +12,22 @@ import net.minecraft.world.level.Level;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class WishboneItem extends Item {
-    public WishboneItem(Properties pProperties) {
-        super(pProperties);
+    public WishboneItem() {
+        super(new Item.Properties());
     }
+
 
     @Override
     public InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pUsedHand) {
         if (!pLevel.isClientSide()) {
             ThreadLocalRandom random = ThreadLocalRandom.current();
-
-            if(random.nextBoolean()) {
-                pPlayer.sendSystemMessage(Component.translatable("item.agsink.wishbone.success"));
-                pPlayer.addItem(new ItemStack(Items.DIAMOND, 1));
-
-                return InteractionResultHolder.consume(pPlayer.getItemInHand(pUsedHand));
+            if (random.nextBoolean()) {
+                pPlayer.displayClientMessage(Component.translatable("item.agsink.wishbone.success"), true);
+                pPlayer.addItem(new ItemStack(Items.DIAMOND, random.nextInt(1, 3)));
+            } else {
+                pPlayer.displayClientMessage(Component.translatable("item.agsink.wishbone.failure"), true);
             }
-            pPlayer.sendSystemMessage(Component.translatable("item.agsink.wishbone.failed"));
-
-            return InteractionResultHolder.consume(pPlayer.getItemInHand(pUsedHand));
         }
-
-        return super.use(pLevel, pPlayer, pUsedHand);
+        return InteractionResultHolder.sidedSuccess(pPlayer.getItemInHand(pUsedHand), pLevel.isClientSide());
     }
 }
