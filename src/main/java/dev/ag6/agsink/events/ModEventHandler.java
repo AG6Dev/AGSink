@@ -25,7 +25,6 @@ public final class ModEventHandler {
         event.registerEntityRenderer(ModEntities.HOOK.get(), ThrownItemRenderer::new);
     }
 
-
     @SubscribeEvent
     public static void onClientSetup(FMLClientSetupEvent event) {
         event.enqueueWork(() -> {

@@ -10,4 +10,5 @@ public final class ModBlocks {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, ModConstants.MOD_ID);
 
     public static final RegistryObject<Block> C4_EXPLOSIVE = BLOCKS.register("c4_explosive", C4ExplosiveBlock::new);
+
 }
