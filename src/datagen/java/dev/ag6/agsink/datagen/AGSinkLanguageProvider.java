@@ -17,5 +17,9 @@ public class AGSinkLanguageProvider extends LanguageProvider {
         this.addItem(ModItems.DETONATOR, "Detonator");
 
         this.add("container.agsink.lunchbox", "Lunchbox");
+
+        this.addItem(ModItems.WISHBONE, "Wishbone");
+        this.add("item.agsink.wishbone.success", "Your wish came true!");
+        this.add("item.agsink.wishbone.failure", "The bone broke and nothing happened!");
     }
 }

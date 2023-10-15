@@ -16,9 +16,10 @@ public class WishboneItem extends Item {
         super(new Item.Properties());
     }
 
-
     @Override
     public InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pUsedHand) {
+        ItemStack itemStack = pPlayer.getItemInHand(pUsedHand);
+
         if (!pLevel.isClientSide()) {
             ThreadLocalRandom random = ThreadLocalRandom.current();
             if (random.nextBoolean()) {
@@ -27,7 +28,11 @@ public class WishboneItem extends Item {
             } else {
                 pPlayer.displayClientMessage(Component.translatable("item.agsink.wishbone.failure"), true);
             }
+
+            if (!pPlayer.getAbilities().instabuild) {
+                itemStack.shrink(1);
+            }
         }
-        return InteractionResultHolder.sidedSuccess(pPlayer.getItemInHand(pUsedHand), pLevel.isClientSide());
+        return InteractionResultHolder.sidedSuccess(itemStack, pLevel.isClientSide());
     }
 }

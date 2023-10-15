@@ -3,5 +3,8 @@
   "container.agsink.lunchbox": "Lunchbox",
   "item.agsink.detonator": "Detonator",
   "item.agsink.hook_item": "Mob Hook",
-  "item.agsink.lunchbox": "Lunchbox"
+  "item.agsink.lunchbox": "Lunchbox",
+  "item.agsink.wishbone": "Wishbone",
+  "item.agsink.wishbone.failure": "The bone broke and nothing happened!",
+  "item.agsink.wishbone.success": "Your wish came true!"
 }
