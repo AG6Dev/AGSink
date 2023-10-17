@@ -12,4 +12,5 @@ public final class ModEntities {
 
     public static final RegistryObject<EntityType<HookEntity>> HOOK = ENTITIES.register("hook", () -> EntityType.Builder.<HookEntity>of(HookEntity::new, MobCategory.MISC).sized(0.25F, 0.25F).build("hook"));
 
+    public static final RegistryObject<EntityType<CrabEntity>> CRAB = ENTITIES.register("crab", () -> EntityType.Builder.<CrabEntity>of(CrabEntity::new, MobCategory.AMBIENT).sized(0.5f, 0.5f).build("crab"));
 }
