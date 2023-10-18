@@ -22,3 +22,5 @@ eclipse
 run
 
 src/generated/resources/.cache
+
+*.bbmodel
