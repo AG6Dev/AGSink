@@ -11,4 +11,5 @@ public final class ModBlocks {
 
     public static final RegistryObject<Block> C4_EXPLOSIVE = BLOCKS.register("c4_explosive", C4ExplosiveBlock::new);
 
+    private ModBlocks() {}
 }

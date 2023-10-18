@@ -7,4 +7,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 public final class ModBlockEntityTypes {
     public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITY_TYPES = DeferredRegister.create(ForgeRegistries.BLOCK_ENTITY_TYPES, AGSink.MOD_ID);
+
+    private ModBlockEntityTypes() {
+    }
 }

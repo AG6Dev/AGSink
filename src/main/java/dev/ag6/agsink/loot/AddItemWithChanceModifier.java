@@ -4,7 +4,6 @@ import com.google.common.base.Suppliers;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
-import net.minecraft.util.ExtraCodecs;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.storage.loot.LootContext;
@@ -36,7 +35,7 @@ public class AddItemWithChanceModifier extends LootModifier {
             }
         }
 
-        if(context.getRandom().nextFloat() < chance) {
+        if (context.getRandom().nextFloat() < chance) {
             generatedLoot.add(new ItemStack(toAdd, 1));
         }
         return generatedLoot;

@@ -11,6 +11,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
@@ -21,7 +22,7 @@ public class DetonatorItem extends Item {
     }
 
     @Override
-    public InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pUsedHand) {
+    public @NotNull InteractionResultHolder<ItemStack> use(Level pLevel, @NotNull Player pPlayer, @NotNull InteractionHand pUsedHand) {
         if (!pLevel.isClientSide) {
             var data = pPlayer.getCapability(PlayerExplosiveDataCapability.EXPLOSIVE_DATA).orElseThrow(() -> new RuntimeException("Could not get player explosive data capability!"));
             var stack = pPlayer.getItemInHand(pUsedHand);
@@ -32,9 +33,7 @@ public class DetonatorItem extends Item {
                     if (pPlayer.blockPosition().distSqr(blockPos) < 1024) {
                         explosiveBlock.explode(pLevel, blockPos);
                         data.removePosition(blockPos);
-                        stack.hurtAndBreak(1, pPlayer, (player) -> {
-                            player.broadcastBreakEvent(pUsedHand);
-                        });
+                        stack.hurtAndBreak(1, pPlayer, (player) -> player.broadcastBreakEvent(pUsedHand));
                     }
                 }
             }
@@ -43,7 +42,7 @@ public class DetonatorItem extends Item {
     }
 
     @Override
-    public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltipComponents, TooltipFlag pIsAdvanced) {
+    public void appendHoverText(@NotNull ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltipComponents, @NotNull TooltipFlag pIsAdvanced) {
         pTooltipComponents.add(Component.literal("Right click to detonate!"));
     }
 }

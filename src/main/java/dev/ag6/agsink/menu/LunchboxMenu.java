@@ -9,18 +9,15 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.items.ItemStackHandler;
 import net.minecraftforge.items.SlotItemHandler;
+import org.jetbrains.annotations.NotNull;
 
 public class LunchboxMenu extends AbstractContainerMenu {
-    private final ItemStack stack;
-
     public LunchboxMenu(int pContainerId, Inventory inv, FriendlyByteBuf buf) {
         this(pContainerId, inv, ItemStack.EMPTY);
     }
 
     public LunchboxMenu(int containerId, Inventory playerInv, ItemStack stack) {
         super(ModMenuTypes.LUNCHBOX.get(), containerId);
-
-        this.stack = stack;
 
         var itemHandler = stack.getCapability(ForgeCapabilities.ITEM_HANDLER).orElseGet(() -> new ItemStackHandler(14));
 
@@ -52,7 +49,7 @@ public class LunchboxMenu extends AbstractContainerMenu {
     }
 
     @Override
-    public ItemStack quickMoveStack(Player playerIn, int pIndex) {
+    public @NotNull ItemStack quickMoveStack(@NotNull Player playerIn, int pIndex) {
         ItemStack itemstack = ItemStack.EMPTY;
         Slot slot = this.slots.get(pIndex);
         if (slot != null && slot.hasItem()) {

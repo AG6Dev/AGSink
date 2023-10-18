@@ -7,6 +7,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import org.jetbrains.annotations.NotNull;
 
 public class HookItem extends Item {
     public HookItem() {
@@ -14,9 +15,8 @@ public class HookItem extends Item {
     }
 
     @Override
-    public InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pUsedHand) {
+    public @NotNull InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, @NotNull InteractionHand pUsedHand) {
         ItemStack itemStack = pPlayer.getItemInHand(pUsedHand);
-
         if (!pLevel.isClientSide) {
             pPlayer.getCooldowns().addCooldown(this, 60);
 
@@ -25,7 +25,6 @@ public class HookItem extends Item {
             hookEntity.shootFromRotation(pPlayer, pPlayer.getXRot(), pPlayer.getYRot(), 0.0f, 0.5f, 1.0f);
             pLevel.addFreshEntity(hookEntity);
         }
-
         return InteractionResultHolder.sidedSuccess(itemStack, pLevel.isClientSide);
     }
 

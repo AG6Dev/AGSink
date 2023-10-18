@@ -7,12 +7,10 @@ import dev.ag6.agsink.entity.ModEntities;
 import dev.ag6.agsink.item.ModItems;
 import dev.ag6.agsink.loot.ModLootModifiers;
 import dev.ag6.agsink.menu.ModMenuTypes;
-import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
-
 
 @Mod(AGSink.MOD_ID)
 public final class AGSink {
