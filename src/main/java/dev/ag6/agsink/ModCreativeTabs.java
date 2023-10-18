@@ -14,12 +14,15 @@ public final class ModCreativeTabs {
 
     public static final RegistryObject<CreativeModeTab> MOD_TAB = CREATIVE_TABS.register("mod_tab",
             () -> CreativeModeTab.builder()
-                    .title(Component.literal("AGSINK"))
+                    .title(Component.literal("AGSink"))
                     .displayItems((pParameters, pOutput) -> {
-                        pOutput.accept(ModItems.DETONATOR.get());
                         pOutput.accept(ModItems.HOOK_ITEM.get());
                         pOutput.accept(ModItems.C4_EXPLOSIVE_BLOCK_ITEM.get());
+                        pOutput.accept(ModItems.DETONATOR.get());
                         pOutput.accept(ModItems.LUNCHBOX.get());
-                    }).icon(() -> new ItemStack(Blocks.BAMBOO_BLOCK)).build());
+                        pOutput.accept(ModItems.WISHBONE.get());
+                        pOutput.accept(ModItems.CRAB_SPAWN_EGG.get());
+                        pOutput.accept(ModItems.PENGUIN_SPAWN_EGG.get());
+                    }).withSearchBar().icon(() -> new ItemStack(Blocks.BAMBOO_BLOCK)).build());
 
 }
