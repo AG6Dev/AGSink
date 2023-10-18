@@ -19,7 +19,7 @@ public class CrabModel<T extends CrabEntity> extends HierarchicalModel<T> {
         this.root = rootPart;
     }
 
-    public static final ModelLayerLocation CRAB_LAYER =
+    public static final ModelLayerLocation LAYER_LOCATION =
             new ModelLayerLocation(new ResourceLocation(AGSink.MOD_ID, "crab"), "main");
 
     public static LayerDefinition createBodyLayer() {
