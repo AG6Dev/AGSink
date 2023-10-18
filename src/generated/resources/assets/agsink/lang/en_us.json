@@ -1,6 +1,9 @@
 {
   "block.agsink.c4_explosive": "C4 Explosives",
   "container.agsink.lunchbox": "Lunchbox",
+  "entity.agsink.crab": "Crab",
+  "entity.agsink.penguin": "Penguin",
+  "item.agsink.crab_claw": "Crab Claw",
   "item.agsink.detonator": "Detonator",
   "item.agsink.hook_item": "Mob Hook",
   "item.agsink.lunchbox": "Lunchbox",

@@ -13,6 +13,6 @@ public class AGSinkDatagen {
     public static void onDatagen(GatherDataEvent event) {
         DataGenerator generator = event.getGenerator();
 
-        generator.addProvider(event.includeClient(), new AGSinkLanguageProvider(generator.getPackOutput(), AGSink.MOD_ID, "en_us"));
+        generator.addProvider(event.includeClient(), new AGSinkLanguageProvider(generator.getPackOutput(), "en_us"));
     }
 }
