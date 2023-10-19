@@ -36,6 +36,6 @@ public class PenguinEntity extends Animal {
     }
 
     public static boolean canSpawn(EntityType<PenguinEntity> entityType, LevelAccessor level, MobSpawnType type, BlockPos pos, RandomSource random) {
-        return level.getBiome(pos).is(Tags.Biomes.IS_SNOWY) && Animal.checkAnimalSpawnRules(entityType, level, type, pos, random);
+        return Animal.checkAnimalSpawnRules(entityType, level, type, pos, random);
     }
 }

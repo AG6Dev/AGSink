@@ -30,6 +30,7 @@ public final class ModEventHandler {
     public static void registerSpawnPlacements(SpawnPlacementRegisterEvent event) {
         event.register(ModEntities.CRAB.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.WORLD_SURFACE, CrabEntity::canSpawn, SpawnPlacementRegisterEvent.Operation.OR);
         event.register(ModEntities.PENGUIN.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.WORLD_SURFACE, PenguinEntity::canSpawn, SpawnPlacementRegisterEvent.Operation.OR);
+
     }
 
     private ModEventHandler() {
