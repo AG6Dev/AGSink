@@ -14,7 +14,6 @@ import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.world.level.biome.Biomes;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -39,7 +38,12 @@ public class CrabEntity extends Animal {
         return ModEntities.CRAB.get().create(pLevel);
     }
 
+    @Override
+    public void tick() {
+        System.out.println("crab " + this.position());
+    }
+
     public static boolean canSpawn(EntityType<CrabEntity> entityType, LevelAccessor level, MobSpawnType spawnType, BlockPos position, RandomSource random) {
-        return level.getBiome(position).is(Biomes.BADLANDS) && Animal.checkAnimalSpawnRules(entityType, level, spawnType, position, random);
+        return Animal.checkAnimalSpawnRules(entityType, level, spawnType, position, random);
     }
 }

@@ -28,8 +28,8 @@ public final class ModEventHandler {
 
     @SubscribeEvent
     public static void registerSpawnPlacements(SpawnPlacementRegisterEvent event) {
-        event.register(ModEntities.CRAB.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.WORLD_SURFACE, CrabEntity::canSpawn, SpawnPlacementRegisterEvent.Operation.OR);
-        event.register(ModEntities.PENGUIN.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.WORLD_SURFACE, PenguinEntity::canSpawn, SpawnPlacementRegisterEvent.Operation.OR);
+        event.register(ModEntities.CRAB.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, CrabEntity::canSpawn, SpawnPlacementRegisterEvent.Operation.OR);
+        event.register(ModEntities.PENGUIN.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, PenguinEntity::canSpawn, SpawnPlacementRegisterEvent.Operation.OR);
 
     }
 

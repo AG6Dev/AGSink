@@ -11,7 +11,6 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
-import net.minecraftforge.common.Tags;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -33,6 +32,11 @@ public class PenguinEntity extends Animal {
     @Override
     public AgeableMob getBreedOffspring(@NotNull ServerLevel pLevel, @NotNull AgeableMob pOtherParent) {
         return ModEntities.PENGUIN.get().create(pLevel);
+    }
+
+    @Override
+    public void tick() {
+        System.out.println("penguin" + this.position());
     }
 
     public static boolean canSpawn(EntityType<PenguinEntity> entityType, LevelAccessor level, MobSpawnType type, BlockPos pos, RandomSource random) {
