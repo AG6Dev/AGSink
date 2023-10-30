@@ -14,7 +14,6 @@ import net.minecraftforge.registries.RegistryObject;
 public final class ModItems {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, AGSink.MOD_ID);
 
-    public static final RegistryObject<Item> HOOK_ITEM = ITEMS.register("hook_item", HookItem::new);
     public static final RegistryObject<Item> DETONATOR = ITEMS.register("detonator", DetonatorItem::new);
     public static final RegistryObject<Item> LUNCHBOX = ITEMS.register("lunchbox", LunchboxItem::new);
     public static final RegistryObject<Item> WISHBONE = ITEMS.register("wishbone", WishboneItem::new);

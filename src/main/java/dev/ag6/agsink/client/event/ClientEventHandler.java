@@ -6,7 +6,6 @@ import dev.ag6.agsink.client.model.PenguinModel;
 import dev.ag6.agsink.client.render.CrabRenderer;
 import dev.ag6.agsink.client.render.PenguinRenderer;
 import dev.ag6.agsink.entity.ModEntities;
-import dev.ag6.agsink.events.ModEventHandler;
 import dev.ag6.agsink.menu.ModMenuTypes;
 import dev.ag6.agsink.menu.screen.LunchboxScreen;
 import net.minecraft.client.gui.screens.MenuScreens;
@@ -28,7 +27,6 @@ public final class ClientEventHandler {
 
         @SubscribeEvent
         public static void onRegisterRenderers(EntityRenderersEvent.RegisterRenderers event) {
-            event.registerEntityRenderer(ModEntities.HOOK.get(), ThrownItemRenderer::new);
             event.registerEntityRenderer(ModEntities.CRAB.get(), CrabRenderer::new);
             event.registerEntityRenderer(ModEntities.PENGUIN.get(), PenguinRenderer::new);
         }
@@ -40,7 +38,8 @@ public final class ClientEventHandler {
             });
         }
 
-        private ModEvents() {}
+        private ModEvents() {
+        }
     }
 
     private ClientEventHandler() {

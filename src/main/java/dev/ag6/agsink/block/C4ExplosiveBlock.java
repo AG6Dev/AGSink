@@ -10,7 +10,6 @@ public class C4ExplosiveBlock extends Block {
     }
 
     public void explode(Level level, BlockPos pos) {
-        System.out.println("Block at position " + pos + " exploded!");
         level.explode(null, pos.getX(), pos.getY(), pos.getZ(), 7.0F, Level.ExplosionInteraction.BLOCK);
     }
 }

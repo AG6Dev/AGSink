@@ -38,11 +38,6 @@ public class CrabEntity extends Animal {
         return ModEntities.CRAB.get().create(pLevel);
     }
 
-    @Override
-    public void tick() {
-        System.out.println("crab " + this.position());
-    }
-
     public static boolean canSpawn(EntityType<CrabEntity> entityType, LevelAccessor level, MobSpawnType spawnType, BlockPos position, RandomSource random) {
         return Animal.checkAnimalSpawnRules(entityType, level, spawnType, position, random);
     }

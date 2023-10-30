@@ -14,7 +14,7 @@ public class PenguinRenderer extends MobRenderer<PenguinEntity, PenguinModel<Pen
     }
 
     @Override
-    public @NotNull ResourceLocation getTextureLocation(PenguinEntity pEntity) {
+    public @NotNull ResourceLocation getTextureLocation(@NotNull PenguinEntity pEntity) {
         return new ResourceLocation(AGSink.MOD_ID, "textures/entity/penguin.png");
     }
 }

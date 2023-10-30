@@ -9,10 +9,15 @@ import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.animal.Animal;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.vehicle.Boat;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.phys.AABB;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.List;
 
 public class PenguinEntity extends Animal {
     public PenguinEntity(EntityType<? extends Animal> pEntityType, Level pLevel) {
@@ -37,6 +42,18 @@ public class PenguinEntity extends Animal {
     @Override
     public void tick() {
         System.out.println("penguin" + this.position());
+
+        List<Boat> boatsWPlayers = getBoatsWithPlayers();
+
+        for (Boat boat : boatsWPlayers) {
+            boat.setDeltaMovement(boat.getDeltaMovement().scale(2.0f));
+        }
+    }
+
+    private List<Boat> getBoatsWithPlayers() {
+        AABB bb = this.getBoundingBox().inflate(16.0D);
+        List<Boat> boats = this.level().getEntitiesOfClass(Boat.class, bb);
+        return boats.stream().filter(boat -> boat.hasPassenger(passenger -> passenger instanceof Player)).toList();
     }
 
     public static boolean canSpawn(EntityType<PenguinEntity> entityType, LevelAccessor level, MobSpawnType type, BlockPos pos, RandomSource random) {
