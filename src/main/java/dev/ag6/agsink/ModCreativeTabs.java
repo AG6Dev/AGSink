@@ -16,7 +16,6 @@ public final class ModCreativeTabs {
             () -> CreativeModeTab.builder()
                     .title(Component.literal("AGSink"))
                     .displayItems((pParameters, pOutput) -> {
-                        pOutput.accept(ModItems.HOOK_ITEM.get());
                         pOutput.accept(ModItems.C4_EXPLOSIVE_BLOCK_ITEM.get());
                         pOutput.accept(ModItems.DETONATOR.get());
                         pOutput.accept(ModItems.LUNCHBOX.get());
