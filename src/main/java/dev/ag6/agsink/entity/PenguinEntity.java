@@ -8,6 +8,10 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.ai.goal.FloatGoal;
+import net.minecraft.world.entity.ai.goal.LookAtPlayerGoal;
+import net.minecraft.world.entity.ai.goal.RandomLookAroundGoal;
+import net.minecraft.world.entity.ai.goal.RandomStrollGoal;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.vehicle.Boat;
@@ -26,7 +30,10 @@ public class PenguinEntity extends Animal {
 
     @Override
     protected void registerGoals() {
-
+        this.goalSelector.addGoal(0, new FloatGoal(this));
+        this.goalSelector.addGoal(1, new RandomStrollGoal(this, 1.0D));
+        this.goalSelector.addGoal(2, new LookAtPlayerGoal(this, Player.class, 6.0F));
+        this.goalSelector.addGoal(3, new RandomLookAroundGoal(this));
     }
 
     public static AttributeSupplier createAttributes() {
@@ -41,12 +48,9 @@ public class PenguinEntity extends Animal {
 
     @Override
     public void tick() {
-        System.out.println("penguin" + this.position());
-
         List<Boat> boatsWPlayers = getBoatsWithPlayers();
-
         for (Boat boat : boatsWPlayers) {
-            boat.setDeltaMovement(boat.getDeltaMovement().scale(2.0f));
+            boat.addDeltaMovement(boat.getDeltaMovement().scale(0.05f));
         }
     }
 
