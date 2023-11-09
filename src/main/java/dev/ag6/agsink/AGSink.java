@@ -3,12 +3,15 @@ package dev.ag6.agsink;
 import com.mojang.logging.LogUtils;
 import dev.ag6.agsink.block.ModBlocks;
 import dev.ag6.agsink.block.entity.ModBlockEntityTypes;
+import dev.ag6.agsink.config.ModConfiguration;
 import dev.ag6.agsink.entity.ModEntities;
 import dev.ag6.agsink.item.ModItems;
 import dev.ag6.agsink.loot.ModLootModifiers;
 import dev.ag6.agsink.menu.ModMenuTypes;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
 
@@ -28,5 +31,7 @@ public final class AGSink {
         ModCreativeTabs.CREATIVE_TABS.register(bus);
         ModMenuTypes.MENU_TYPES.register(bus);
         ModLootModifiers.LOOT_MODIFIERS.register(bus);
+
+        ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, ModConfiguration.COMMON_SPEC);
     }
 }

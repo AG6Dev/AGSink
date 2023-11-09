@@ -1,5 +1,6 @@
 package dev.ag6.agsink.entity;
 
+import dev.ag6.agsink.config.ModConfiguration;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
@@ -50,7 +51,7 @@ public class PenguinEntity extends Animal {
     public void tick() {
         List<Boat> boatsWPlayers = getBoatsWithPlayers();
         for (Boat boat : boatsWPlayers) {
-            boat.addDeltaMovement(boat.getDeltaMovement().scale(0.05f));
+            boat.addDeltaMovement(boat.getDeltaMovement().scale(ModConfiguration.penguinBoatSpeedMultiplier.get()));
         }
     }
 
